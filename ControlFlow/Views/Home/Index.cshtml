@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/heroPage.css" asp-append-version="true" />
+}
+<main class="hero-part">
+    <section class="hero-text">
+        <h1 class="hero-title">
+            Manage Tasks, Not Time!
+        </h1>
+        <p class="hero-details">
+            TaskFlow helps teams organize, track, and manage their work in one place.
+            Simple, flexible, and powerful task management for teams of all sizes.
+        </p>
+        <div class="btn-container start-btn">
+            @if (User?.Identity?.IsAuthenticated == true)
+            {
+                <a asp-controller="Task" asp-action="Main" class="secondary-btn">Get Back to Transforming Your Life!</a>
+            }
+            else{
+                <a asp-area="Identity" asp-page="/Account/Login" class="secondary-btn">Start for Free!</a>
+            }
+        </div>
+    </section>
+    <section class="hero-image">
+        <div class="img-container" style="width: 250px;">
+            <img src="~/images/HeroImage.jpg" alt="Hero image">
+        </div>
+    </section>
+</main>

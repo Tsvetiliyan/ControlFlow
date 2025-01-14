@@ -1,0 +1,88 @@
+﻿@using ControlFlow.Core
+@using ControlFlow.Core.Entities.Tasks
+@using System.Globalization
+@using ControlFlow.ViewModels
+@model MainViewModel
+@{
+    ViewData["Title"] = "Main Page";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/main.css" asp-append-version="true" />
+}
+<main class="board-container">
+    <div class="board-menu-container">
+        <div class="board-menu">
+            <div class="search-bar-container">
+                <input type="text" placeholder="Searching for tasks..." class="search-bar">
+            </div>
+            <div class="add-task-btn-container">
+                <a asp-action="UpsertTask" class="secondary-btn">Add Task</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="board">
+        @for (int i = 0; i < MainViewModel.taskListContainersHeader.Length; i++)
+        {
+            <div class="card">
+                <div class="column-header">
+                    <div class="column-title">
+                        <svg width="@MainViewModel.taskListContainersHeaderSVGs[i].Width"
+                             height="@MainViewModel.taskListContainersHeaderSVGs[i].Height"
+                             viewBox="@MainViewModel.taskListContainersHeaderSVGs[i].ViewBox"
+                             fill="@MainViewModel.taskListContainersHeaderSVGs[i].Fill"
+                             stroke="@MainViewModel.taskListContainersHeaderSVGs[i].Stroke"
+                             stroke-width="@MainViewModel.taskListContainersHeaderSVGs[i].StrokeWidth">
+                            @foreach (var element in MainViewModel.taskListContainersHeaderSVGs[i].Elements)
+                            {
+                                @Html.Raw(SvgLibrary.RenderSvgElement(element))
+                            }
+                        </svg>
+                        @MainViewModel.taskListContainersHeader[i]
+                    </div>
+                    <span class="task-count">
+                        @Model.TasksListsContainer[i].Count
+                    </span>
+                </div>
+                <ul class="task-list">
+                    @foreach (UserTask task in Model.TasksListsContainer[i])
+                    {
+                        <a class="task-card task-card-@task.Priority.ToString().ToLower()-priority" asp-action="TaskDetails" asp-route-taskId="@task.Id">
+                            <div class="task-header">
+                                <h4 class="task-title">
+                                    @task.Title
+                                </h4>
+                                <div class="task-header-priority task-header-priority-@task.Priority.ToString().ToLower()-priority">
+                                    @task.Priority.ToString()
+                                </div>
+                            </div>
+
+                            <div class="date-container">
+                                <div class="due-date">
+                                    <svg width="@MainViewModel.dueDateIcon.Width"
+                                         height="@MainViewModel.dueDateIcon.Height"
+                                         viewBox="@MainViewModel.dueDateIcon.ViewBox"
+                                         fill="@MainViewModel.dueDateIcon.Fill"
+                                         stroke="@MainViewModel.dueDateIcon.Stroke"
+                                         stroke-width="@MainViewModel.dueDateIcon.StrokeWidth">
+                                        @foreach (var element in MainViewModel.dueDateIcon.Elements)
+                                        {
+                                            @Html.Raw(SvgLibrary.RenderSvgElement(element))
+                                        }
+                                    </svg>
+                                    <p>
+                                        Due @task.DueDate.ToString("MMM dd", CultureInfo.InvariantCulture)
+                                    </p>
+                                </div>
+                                <p class="task-category">
+                                    @task.Category
+                                </p>
+                            </div>
+                        </a>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+    <script src="~/js/mainSearchBar.js"></script>
+</main>

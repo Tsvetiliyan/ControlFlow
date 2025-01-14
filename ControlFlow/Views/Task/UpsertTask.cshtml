@@ -1,0 +1,96 @@
+﻿@using System.Security.Claims
+@using ControlFlow.ViewModels
+@model TaskViewModel
+@{
+    ViewData["Title"] = "Upsert Page";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/upsert.css" asp-append-version="true" />
+}
+<main class="form-container">
+    <form class="task-form" method="post">
+        <input hidden type="text" asp-for="Task.UserId" value="@User.FindFirstValue(ClaimTypes.NameIdentifier)" />
+        <input hidden type="text" asp-for="Task.Id" value="@Model.Task.Id" />
+
+        <div class="parameter-container" id="title-container">
+            <label asp-for="Task.Title" class="label">Task Title</label>
+            <input asp-for="Task.Title" type="text" class="input" id="task-title" placeholder="What needs to be done?">
+            <span asp-validation-for="Task.Title" class="validation-error"></span>
+        </div>
+        <div class="parameter-container" id="description-container">
+            <label asp-for="Task.Description" class="label">Task Description</label>
+            <textarea asp-for="Task.Description" class="input" id="text-description" placeholder="Add additional details about your task"></textarea>
+            <span asp-validation-for="Task.Description" class="validation-error"></span>
+        </div>
+        <p class="label">Task Priority</p>
+        <div class="parameter-container" id="priority-container">
+            <div class="priority-option-container radio-btn-container">
+                <input type="radio" asp-for="Task.Priority" id="priority-low" class="radio-btn low" value="0">
+                <label for="priority-low" class="label radio-btn-label">Low</label>
+            </div>
+            <div class="priority-option-container radio-btn-container">
+                <input type="radio" asp-for="Task.Priority" id="priority-medium" class="radio-btn medium" value="1">
+                <label for="priority-medium" class="label radio-btn-label">Medium</label>
+            </div>
+            <div class="priority-option-container radio-btn-container">
+                <input type="radio" asp-for="Task.Priority" id="priority-high" class="radio-btn high" value="2">
+                <label for="priority-high" class="label radio-btn-label">High</label>
+            </div>
+            <span asp-validation-for="Task.Priority" class="validation-error"></span>
+        </div>
+        <p class="label">Task Category</p>
+        <div class="parameter-container" id="category-container">
+            @foreach (var category in Model.TaskCategories)
+            {
+                <div class="radio-btn-container">
+                    <input type="radio" class="radio-btn category-radio"
+                           id="@category.ToString().ToLower()"
+                           value="@category"
+                           asp-for="Task.Category">
+                    <label for="@category.ToString().ToLower()" class="label radio-btn-label">@category</label>
+                </div>
+            }
+            <span asp-validation-for="Task.Category" class="validation-error"></span>
+        </div>
+        <p class="label">Task Status</p>
+        <div class="parameter-container" id="category-container">
+            @foreach (var status in Model.TastStatus)
+            {
+                <div class="radio-btn-container">
+                    <input type="radio" class="radio-btn category-radio"
+                           id="@status.ToString().ToLower()"
+                           value="@status"
+                           asp-for="Task.TaskStatus">
+                    <label for="@status.ToString().ToLower()" class="label radio-btn-label">@status</label>
+                </div>
+            }
+            <span asp-validation-for="Task.TaskStatus" class="validation-error"></span>
+        </div>
+
+
+        <div class="parameter-container">
+            <label asp-for="Task.DueDate" class="label" for="dueDate">Due Date:</label>
+            @if (Model.Task.Id > 0)
+            {
+                <input asp-for="Task.DueDate" type="datetime-local" id="dueDate" class="due-date" />
+            }
+            else
+            {
+
+                <input asp-for="Task.DueDate" type="datetime-local" id="dueDate" class="due-date"
+                       value="@DateTime.Now" />
+            }
+            <span asp-validation-for="Task.DueDate" class="validation-error"></span>
+        </div>
+        @if (Model.Task.Id > 0)
+        {
+            <button type="submit" class="primary-btn">Update Task</button>
+        }
+        else
+        {
+            <button type="submit" class="primary-btn">Create Task</button>
+
+        }
+        <script src="~/js/upsert.js"></script>
+    </form>
+</main>

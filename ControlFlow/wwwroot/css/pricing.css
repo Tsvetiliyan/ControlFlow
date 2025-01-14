@@ -1,0 +1,77 @@
+.pricing-header{
+    padding: 50px;
+}
+.pricing-header-title{
+    font-size: 3rem;
+    color: var(--dark-blue);
+    text-align: center;
+    margin-bottom: 10px;
+}
+.pricing-header-description{
+    font-size: 1.3rem;
+    color: var(--gray-text);
+    text-align: center;
+}
+.pricings-container{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+.pricing-card{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: clamp(100px, 500px, 600px);
+    max-width: 600px;
+    background-color: white;
+    border: 2px solid transparent; 
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease-in-out;
+}
+.pricing-card:hover{
+    transform: translateY(-1px);
+    box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.2);
+    border: 2px solid var(--primary-blue); 
+}
+.pricing-card-title{
+    color: var(--dark-blue);
+    text-align: center;
+    font-size: 1.8rem;
+}
+.pricing-card-price-container{
+    text-align: center;
+}
+.pricing-card-price{
+    color: var(--secondary-blue);
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+.subscription-period{
+    color: var(--gray-text);
+}
+.pricing-card-description{
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--gray-text);
+}
+.pricing-card-feautures{
+    flex-grow: 2;
+}
+.feature-item{
+    position: relative;
+    color: var(--gray-text);
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+.feature-item::before {
+    content: "✔"; 
+    color: var(--primary-blue); 
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.btn-container {
+    margin-top: auto; 
+}

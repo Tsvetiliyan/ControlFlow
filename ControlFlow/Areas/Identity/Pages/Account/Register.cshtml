@@ -1,0 +1,130 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/loginRegister.css" asp-append-version="true" />
+}
+
+<main class="container">
+    <h1 class="heading">Create new Account!</h1>
+    <div asp-validation-summary="ModelOnly" class="validation-summary" role="alert"></div>
+
+    <form id="account" method="post">
+        <div class="credentials">
+            <div class="credential-container">
+                <label asp-for="Input.Email" class="label">Email</label>
+                <input type="email" asp-for="Input.Email" class="input" placeholder="Enter your Email">
+                <span asp-validation-for="Input.Email" class="validation-error"></span>
+            </div>
+            <div class="credential-container">
+                <label asp-for="Input.Password" class="label">Password</label>
+                <input type="password" asp-for="Input.Password" class="input" placeholder="Enter your Password">
+                <span asp-validation-for="Input.Password" class="validation-error"></span>
+            </div>
+            <div class="credential-container">
+                <label asp-for="Input.ConfirmPassword" class="label">Confirm Password</label>
+                <input type="password" asp-for="Input.ConfirmPassword" class="input" placeholder="Confirm Your Password">
+                <span asp-validation-for="Input.ConfirmPassword" class="validation-error"></span>
+            </div>
+        </div>
+        <button id="registerSubmit" type="submit" class="secondary-btn" >Create Account</button>
+    </form>
+</main>
+
+
+@* <div class="register-container">
+    <div class="register-section">
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="register-form">
+            <div class="form-header">
+                <h2 class="section-title">Create a new account.</h2>
+                <p class="form-subtitle">Fill in your details to get started</p>
+            </div>
+            <hr class="divider" />
+
+            <div asp-validation-summary="ModelOnly" class="validation-summary" role="alert"></div>
+
+            <div class="form-group">
+                <label asp-for="Input.Email" class="form-label">Email</label>
+                <div class="input-wrapper">
+                    <input asp-for="Input.Email"
+                           class="form-input"
+                           autocomplete="username"
+                           aria-required="true"
+                           placeholder="name@example.com" />
+                </div>
+                <span asp-validation-for="Input.Email" class="validation-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Input.Password" class="form-label">Password</label>
+                <div class="input-wrapper">
+                    <input asp-for="Input.Password"
+                           class="form-input"
+                           autocomplete="new-password"
+                           aria-required="true"
+                           placeholder="Enter your password" />
+                </div>
+                <span asp-validation-for="Input.Password" class="validation-error"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Input.ConfirmPassword" class="form-label">Confirm Password</label>
+                <div class="input-wrapper">
+                    <input asp-for="Input.ConfirmPassword"
+                           class="form-input"
+                           autocomplete="new-password"
+                           aria-required="true"
+                           placeholder="Confirm your password" />
+                </div>
+                <span asp-validation-for="Input.ConfirmPassword" class="validation-error"></span>
+            </div>
+
+            <div class="form-group">
+                <button id="registerSubmit" type="submit" class="btn-primary">Create Account</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="external-register-section">
+        <section class="external-services">
+            <div class="services-header">
+                <h3 class="section-title">Use another service</h3>
+                <p class="services-subtitle">Quick registration with your favorite platforms</p>
+            </div>
+            <hr class="divider" />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div class="info-card">
+                        <p class="info-text">
+                            There are no external authentication services configured. See this
+                            <a href="https://go.microsoft.com/fwlink/?LinkID=532715" class="form-link">
+                                article
+                                about setting up this ASP.NET application to support logging in via external services
+                            </a>.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="external-form">
+                        <div class="external-buttons">
+                            @foreach (var provider in Model.ExternalLogins!)
+                            {
+                                <button type="submit"
+                                        class="btn-secondary"
+                                        name="provider"
+                                        value="@provider.Name"
+                                        title="Register using your @provider.DisplayName account">
+                                    @provider.DisplayName
+                                </button>
+                            }
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+</div> *@

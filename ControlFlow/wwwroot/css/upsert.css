@@ -1,0 +1,133 @@
+.form-container {
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    border: none;
+    border-top: solid;
+    border-top-color: var(--primary-blue);
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.task-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.parameter-container {
+    margin-bottom: 10px;
+}
+
+.label {
+    display: block;
+    color: var(--gray-text);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    border: solid;
+    border-color: #eeee;
+    border-width: 2px;
+    border-radius: 5px;
+    background-color: var(--bg-gray);
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+    .input:focus {
+        outline: none;
+        background-color: white;
+        border-color: var(--primary-blue);
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    }
+
+#text-description {
+    resize: none;
+    overflow: hidden;
+}
+
+#priority-container {
+    display: flex;
+    gap: 20px;
+}
+
+.radio-btn-container {
+    position: relative;
+    flex-grow: 1;
+}
+
+.radio-btn {
+    appearance: none;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    border: 2px solid var(--bg-gray);
+    background-color: white;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.radio-btn:checked {
+    background-color: var(--bg-blue);
+    border-color: var(--primary-blue);
+}
+
+.radio-btn-label {
+    display: inline-block;
+    position: absolute;
+    font-size: 1rem;
+    font-weight: 400;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    margin-bottom: 0px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.low:checked {
+    border-color: var(--low-priority-task);
+    background-color: color-mix(in srgb, var(--low-priority-task), transparent 90%);
+}
+
+.medium:checked {
+    border-color: var(--medium-priority-task);
+    background-color: color-mix(in srgb, var(--medium-priority-task), transparent 90%);
+}
+
+.high:checked {
+    border-color: var(--high-priority-task);
+    background-color: color-mix(in srgb, var(--high-priority-task), transparent 90%);
+}
+#category-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 5px;
+    column-gap: 10px;
+}
+
+#category-radio:checked {
+    border-color: var(--primary-blue);
+    background-color: color-mix(in srgb, var(--primary-blue), transparent 90%);
+}
+.due-date {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid var(--bg-gray);
+    border-radius: 5px;
+    background-color: var(--bg-gray);
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+.due-date:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    background-color: var(--bg-blue);
+}

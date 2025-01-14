@@ -1,0 +1,10 @@
+﻿@using ControlFlow.Core.Entities
+@inject SignInManager<ApplicationUser> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+
+<ul class="navigation-menu">
+    <li><a id="profile" asp-page="./Index" class="active option">Profile</a></li>
+    <li><a id="change-password" asp-page="./ChangePassword" class="option">Password</a></li>
+</ul>

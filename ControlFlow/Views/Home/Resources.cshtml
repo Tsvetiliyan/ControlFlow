@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Resources Page";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/resources.css" asp-append-version="true" />
+}
+<div class="resources-header">
+    <h1 class="resources-title">Design Resources</h1>
+    <p class="resources-subtitle">Everything you need to build consistent and beautiful interfaces with TaskFlow</p>
+</div>
+<main class="resource-container">
+    <div class="resource-section">
+        <div class="resource-section-header">
+            <svg width="24" height="24" fill="currentColor" stroke="currentColor" stroke-width="3">
+                <path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <h1 class="resource-section-title">Documentation</h1>
+        </div>
+
+        <div class="resource-grid">
+            <div class="resource-card">
+                <h2 class="resource-card-title">Getting Started</h2>
+                <p class="resource-card-description">
+                    Learn the Basics of ControlFlow and how to set up your first project
+                </p>
+                <div class="btn-container">
+                    <a asp-action="HowItWorks" class="primary-btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

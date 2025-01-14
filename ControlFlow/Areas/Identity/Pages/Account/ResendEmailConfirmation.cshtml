@@ -1,0 +1,21 @@
+﻿@page
+@model ResendEmailConfirmationModel
+@{
+    ViewData["Title"] = "Resend email confirmation";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css//resendEmailConfirmation.css" asp-append-version="true" />
+}
+<div class="page-wrapper">
+    <h2 class="page-title">Enter your email</h2>
+    <hr class="separator" />
+    <form method="post">
+        <div asp-validation-summary="All" role="alert"></div>
+        <div class="input-wrapper">
+            <input asp-for="Input.Email" class="input-field" aria-required="true" placeholder=" " />
+            <label asp-for="Input.Email" class="input-label">Email address</label>
+            <span asp-validation-for="Input.Email" class="error-message"></span>
+        </div>
+        <button type="submit" class="submit-btn">Resend</button>
+    </form>
+</div>

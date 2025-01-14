@@ -1,0 +1,105 @@
+.container {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    display:inline-block;
+    text-align:center;
+    color: var(--dark-blue);
+    font-size: var(--large-font-size);
+    margin-bottom: 1.5rem;
+}
+
+.profile-form {
+    min-width:400px;
+    max-width: 600px;
+}
+
+.validation-summary {
+    background-color: #fef2f2;
+    border: 1px solid var(--high-priority-task);
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    color: var(--high-priority-task);
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: var(--gray-text);
+    transition: all 0.2s;
+    pointer-events: none;
+    font-size: var(--normal-font-size);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--bg-blue);
+    border-radius: 4px;
+    font-size: var(--normal-font-size);
+    background-color: white;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+    transform: translateY(-1.75rem);
+    font-size: var(--small-font-size);
+    color: var(--primary-blue);
+    background-color: white;
+    padding: 0 0.5rem;
+}
+
+.form-group input:disabled {
+    background-color: var(--bg-gray);
+    cursor: not-allowed;
+}
+
+.validation-message {
+    color: var(--high-priority-task);
+    font-size: var(--small-font-size);
+    margin-top: 0.5rem;
+}
+
+.submit-button {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: var(--normal-font-size);
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+    background-color: var(--secondary-blue);
+}
+
+.submit-button:focus {
+    outline: 2px solid var(--light-blue);
+    outline-offset: 2px;
+}

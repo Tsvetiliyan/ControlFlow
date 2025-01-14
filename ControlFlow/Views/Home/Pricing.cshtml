@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Pricing Page";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/pricing.css" asp-append-version="true" />
+}
+<div class="pricing-header">
+    <h1 class="pricing-header-title">
+        Simple & To the Point
+    </h1>
+    <p class="pricing-header-description">
+        Choose the perfect plan for your needs!
+    </p>
+</div>
+<main class="pricings-container">
+    <div class="pricing-card">
+        <h3 class="pricing-card-title">
+            Free
+        </h3>
+        <div class="pricing-card-price-container">
+            <span class="pricing-card-price">BGN 0.00</span>
+            <span class="subscription-period">/month</span>
+        </div>
+        <p class="pricing-card-description">
+            Perfect for individuals getting started
+        </p>
+        <ul class="pricing-card-features">
+            <li class="feature-item">Up to 10 tasks</li>
+            <li class="feature-item">Simple priority labels</li>
+            <li class="feature-item">Email Reminder Support</li>
+        </ul>
+        <div class="btn-container">
+            <a href="#" class="secondary-btn">Coming Soon!</a>
+        </div>
+    </div>
+    <div class="pricing-card">
+        <h3 class="pricing-card-title">
+            Pro
+        </h3>
+        <div class="pricing-card-price-container">
+            <span class="pricing-card-price">BGN 4.00</span>
+            <span class="subscription-period">/month</span>
+        </div>
+        <p class="pricing-card-description">
+            Ideal for professionals
+        </p>
+        <ul class="pricing-card-features">
+            <li class="feature-item">Everything in Free</li>
+            <li class="feature-item">Unlimited tasks</li>
+            <li class="feature-item">Custom priority labels</li>
+        </ul>
+        <div class="btn-container">
+            <a href="#" class="secondary-btn">Coming Soon!</a>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,22 @@
+.hero-part{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1100px;
+    padding: 1rem 2rem;
+    margin: 50px auto;
+    margin-bottom: 0px;
+}
+.hero-text{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+}
+.hero-title{
+    font-size: 4rem;
+    color: var(--dark-blue);
+}
+.hero-details{
+    font-size: 1.3rem;
+    color: var(--gray-text);
+}

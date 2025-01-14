@@ -1,0 +1,235 @@
+.register-container {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.register-section {
+    flex: 1;
+    min-width: 320px;
+}
+
+.external-register-section {
+    flex: 1;
+    min-width: 320px;
+}
+
+.page-title {
+    color: var(--dark-blue);
+    font-size: calc(var(--large-font-size) * 1.2);
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.section-title {
+    color: var(--dark-blue);
+    font-size: var(--large-font-size);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-subtitle,
+.services-subtitle {
+    color: var(--gray-text);
+    font-size: var(--normal-font-size);
+    margin-bottom: 1rem;
+}
+
+.form-header,
+.services-header {
+    margin-bottom: 1.5rem;
+}
+
+.register-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--bg-blue);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-wrapper {
+    position: relative;
+    margin-top: 0.5rem;
+}
+
+.form-label {
+    display: block;
+    color: var(--dark-blue);
+    font-size: var(--normal-font-size);
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--bg-blue);
+    border-radius: 8px;
+    font-size: var(--normal-font-size);
+    color: var(--dark-blue);
+    transition: all 0.3s ease;
+    background-color: var(--bg-gray);
+}
+
+.form-input::placeholder {
+    color: var(--gray-text);
+    opacity: 0.7;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    background-color: white;
+    box-shadow: 0 0 0 4px var(--bg-blue);
+}
+
+.validation-error {
+    color: var(--high-priority-task);
+    font-size: var(--small-font-size);
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.validation-summary {
+    color: var(--high-priority-task);
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid var(--high-priority-task);
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: var(--normal-font-size);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-blue);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.btn-secondary {
+    padding: 0.875rem 1.5rem;
+    background-color: white;
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: var(--normal-font-size);
+}
+
+.btn-secondary:hover {
+    background-color: var(--bg-blue);
+    border-color: var(--secondary-blue);
+    color: var(--secondary-blue);
+}
+
+.external-services {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--bg-blue);
+}
+
+.external-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.info-card {
+    background-color: var(--bg-gray);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.info-text {
+    color: var(--gray-text);
+    line-height: 1.6;
+}
+
+.form-link {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.form-link:hover {
+    color: var(--secondary-blue);
+    text-decoration: underline;
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background-color: var(--bg-blue);
+    margin: 1.5rem 0;
+}
+
+@media (max-width: 768px) {
+    .register-container {
+        padding: 1rem;
+        gap: 2rem;
+    }
+
+    .register-form,
+    .external-services {
+        padding: 1.5rem;
+    }
+}
+
+.form-input:focus:not(:focus-visible) {
+    box-shadow: none;
+}
+
+.btn-primary:focus,
+.btn-secondary:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px var(--bg-blue);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.validation-error {
+    animation: slideIn 0.3s ease-out;
+}
