@@ -14,6 +14,24 @@ ControlFlow е уеб приложение за управление на зад
 - Инсталиран **.NET 9** или по-нова версия.
 - Настройка на база данни за **ControlFlow.Data**.
 - Настройка на конфигурационни файлове за **ControlFlow.Services**.
+- Настройка за имейл в конфигурационните файлове, за да може да се използва функцията за изпращане на имейли
+
+### NuGet Packages, които са използвани при създаването на този проект:
+- **AutoMapper** by Jimmy Bogard
+- **MailKit** by Jeffrey Stedfast
+- **Microsoft.AspNetCore.Identity.EntityFrameworkCore** by Microsoft
+- **Microsoft.AspNetCore.Identity.UI** by Microsoft
+- **Microsoft.AspNetCore.Identity** by Microsoft
+- **Microsoft.EntityFrameworkCore.Tools** by Microsoft
+- **Microsoft.Extensions.Hosting.Abstractions** by Microsoft
+- **Microsoft.VisualStudio.Web.CodeGeneration.Design** by Microsoft
+- **Microsoft.EntityFrameworkCore.Tools** by Microsoft
+
+### Настройки на конфигурация
+Приложението използва следните конфигурации, които могат да бъдат настроени в appsettings.json или чрез User Secrets:
+- **Connection Strings**: Настройки за свързване с базата данни.
+- **Email Settings**: За конфигуриране на SMTP сървър за изпращане на имейли за напомняния, както и имейла и паролата за имейла.
+- **AppSettings**: Различни конфигурации за функционирането на приложението.
 
 За да стартираш приложението на твоя компютър, следвай тези стъпки:
 
@@ -25,6 +43,17 @@ ControlFlow е уеб приложение за управление на зад
 git clone https://github.com/Tsvetiliyan/ControlFlow
 
 ```
+### Как да се настрои функцията за изпращане на напомняне чрез имейл:
+- Настройте вашия SMTP сървър в appsettings.json, добавете имейл адреса, който искате да използвате за пращане на имейли, както и неговата парола.
+### Примерна настройка за имейл сервиза (препоръчително е да бъде сложен в UserSecrets
+"EmailSettings": {
+  "SmtpServer": "smtp",
+  "Port": 465,
+  "SenderEmail": "email",
+  "Password": "password"
+}
+
+
 ## Документация на кода
 
 # ControlFlow Solution
@@ -105,5 +134,4 @@ git clone https://github.com/Tsvetiliyan/ControlFlow
 
 ### Ключови характеристики
 - Услуги за изпращане на имейли
-
 
